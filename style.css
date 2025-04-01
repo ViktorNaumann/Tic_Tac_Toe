@@ -12,7 +12,7 @@ h1 {
 }
 
 #content {
-    margin-top: 350px;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,6 @@ table {
     width: 300px;
     height: 300px;
     border-collapse: collapse;
-    margin: 20px auto;
 }
 
 td {
@@ -33,6 +32,17 @@ td {
     border-left: 5px solid white; /* Trennlinien innen */
     border-top: 5px solid white; /* Trennlinien innen */
     cursor: pointer;
+    position: relative; /* Um das SVG genau zu positionieren */
+    box-sizing: border-box; /* Verhindert, dass Padding oder Borders das Layout beeinflussen */
+}
+
+td svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Zentriert das SVG in der Mitte */
+    display: inline-block; /* Stellt sicher, dass es keine Layout-Probleme verursacht */
+    pointer-events: none; /* Verhindert, dass das SVG die Interaktion blockiert */
 }
 
 td:first-child {
@@ -46,3 +56,110 @@ tr:first-child td {
 td:hover {
     background-color: #f0f0f016;
 }
+
+#game-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+#winning-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    pointer-events: none;  /* Stellt sicher, dass das SVG keine Interaktionen blockiert */
+}
+
+#winning-line line {
+    stroke: white;
+    stroke-width: 5;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 8px white);  /* Leucht-Effekt */
+    animation: glow 1.5s ease-out infinite alternate; /* Schimmernde Animation */
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 8px white);
+    }
+    50% {
+        filter: drop-shadow(0 0 15px white);
+    }
+    100% {
+        filter: drop-shadow(0 0 8px white);
+    }
+}
+
+/* From Uiverse.io by gharsh11032000 */ 
+.button {
+    position: relative;
+    width: 120px;
+    height: 40px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -4px;
+    top: -1px;
+    margin: auto;
+    width: 128px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .button::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+  }
+  
+  .button:hover::after {
+    filter: blur(30px);
+  }
+  
+  .button:hover::before {
+    transform: rotate(-180deg);
+  }
+  
+  .button:active::before {
+    scale: 0.7;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mt-32 {
+    margin-top: 32px;
+  }
+  
+
+
+
+
