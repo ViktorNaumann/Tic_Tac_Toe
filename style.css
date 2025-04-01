@@ -1,0 +1,48 @@
+body {
+    background-color: #323232;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+#content {
+    margin-top: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 300px;
+    height: 300px;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+td {
+    width: 66px;
+    height: 66px;
+    text-align: center;
+    font-size: 2em;
+    border-left: 5px solid white; /* Trennlinien innen */
+    border-top: 5px solid white; /* Trennlinien innen */
+    cursor: pointer;
+}
+
+td:first-child {
+    border-left: none; /* Entferne die linke Grenze der ersten Spalte */
+}
+
+tr:first-child td {
+    border-top: none; /* Entferne die obere Grenze der ersten Reihe */
+}
+
+td:hover {
+    background-color: #f0f0f016;
+}
